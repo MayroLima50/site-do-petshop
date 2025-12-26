@@ -1,0 +1,1 @@
+# opções de excluir e atualizar dados já encapsuladas nesse arquivo.
