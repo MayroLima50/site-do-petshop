@@ -12,3 +12,11 @@ def verificar_login(email, senha):
     
     # Se 'usuario' não for None, significa que encontrou os dados certos
     return usuario
+
+def buscar_pets_do_dono(usuario_id):
+    conn = sqlite3.connect('banco/petshop.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM pets WHERE dono_id = ?", (usuario_id,))
+    pets = cursor.fetchall()
+    conn.close()
+    return pets
