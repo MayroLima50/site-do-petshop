@@ -3,7 +3,8 @@ import sqlite3
 def criar_tabelas():
     conn = sqlite3.connect('banco/petshop.db')
     cursor = conn.cursor()
-    # criação da Tabela de Usuários destinadas aos Tutores
+    
+    # 1. Criação da Tabela de Usuários (Tutores)
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS usuarios (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -18,14 +19,8 @@ def criar_tabelas():
             foto_path TEXT
         )
     ''')
-    conn.commit()
-    conn.close()
-
-def criar_tabelas():
-    conn = sqlite3.connect('banco/petshop.db')
-    cursor = conn.cursor()
     
-    # Tabela de Pets vinculada que estão vinculados aos usuários por ID.
+    # 2. Tabela de Pets (vinculada ao dono_id)
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS pets (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -38,5 +33,7 @@ def criar_tabelas():
             FOREIGN KEY (dono_id) REFERENCES usuarios (id)
         )
     ''')
+    
     conn.commit()
     conn.close()
+    print("Tabelas verificadas/criadas com sucesso!")
