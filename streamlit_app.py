@@ -10,7 +10,7 @@ except Exception as e:
     st.error(f"Erro ao inicializar banco: {e}")
 
 def tela_login():
-    st.title("🐾 Sistema PetShop 1.0")
+    st.title("🐾PetZ")
     aba1, aba2 = st.tabs(["Acessar Conta", "Novo Cadastro"])
     
     with aba1:
